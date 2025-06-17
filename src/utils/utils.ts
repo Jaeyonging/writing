@@ -1,5 +1,7 @@
 import Tesseract from "tesseract.js";
 
+//https://github.com/naptha/tesseract.js/blob/master/docs/api.md
+
 export const extractTextFromImage = async (imageDataUrl: string) => {
   const result = await Tesseract.recognize(imageDataUrl, 'kor', {
     logger: m => console.log(m),
@@ -8,11 +10,11 @@ export const extractTextFromImage = async (imageDataUrl: string) => {
   });
 
   const text = result.data.text.trim();
+  console.log(result)
   // @ts-ignore
-  const symbol = result.data.symbols?.[0]; // 단일 문자일 경우 symbols 배열에서 가져옴
 
   return {
     recognizedText: text,
-    confidence: symbol?.confidence ?? null, // symbol이 더 세밀함
+    confidence: result.data.confidence ?? null, // symbol이 더 세밀함
   };
 };

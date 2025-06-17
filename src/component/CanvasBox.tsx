@@ -28,11 +28,11 @@ const CanvasBox = ({ material, backgroundText, onDrawEnd }: Props) => {
     const getStrokeStyle = () => {
         switch (material) {
             case "colorpencil":
-                return { color: "red", width: 2 };
+                return { color: "red", width: 5 };
             case "eraser":
                 return { color: "white", width: 10 };
             default:
-                return { color: "black", width: 2 };
+                return { color: "black", width: 5 };
         }
     };
 
