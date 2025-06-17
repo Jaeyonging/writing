@@ -1,7 +1,7 @@
 import Tesseract from "tesseract.js";
 
 //https://github.com/naptha/tesseract.js/blob/master/docs/api.md
-
+//https://www.smashingmagazine.com/2021/06/image-text-conversion-react-tesseract-js-ocr/  recommend this blog 
 export const extractTextFromImage = async (imageDataUrl: string) => {
   const result = await Tesseract.recognize(imageDataUrl, 'kor', {
     logger: m => console.log(m),
