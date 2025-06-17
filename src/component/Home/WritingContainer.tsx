@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CanvasBox from "../CanvasBox";
+import { extractTextFromImage } from "../../utils/utils";
 
 const WritingContainer = () => {
     const [material, setMaterial] = useState("pencil");
@@ -8,6 +9,11 @@ const WritingContainer = () => {
     const handleDrawEnd = (dataUrl: string, key: string) => {
         setImages(prev => ({ ...prev, [key]: dataUrl }));
     };
+
+    const handleCheck = async () => {
+        const text = await extractTextFromImage(images["한"]);
+        console.log(text);
+    }
 
     return (
         <div className="flex flex-col w-full p-2 gap-2">
@@ -61,7 +67,7 @@ const WritingContainer = () => {
                 ))}
             </div>
             <div>
-                <button className="cursor-pointer border-[1px] border-black rounded-md p-2">검사받기</button>
+                <button className="cursor-pointer border-[1px] border-black rounded-md p-2" onClick={handleCheck}>검사받기</button>
             </div>
         </div>
     );
