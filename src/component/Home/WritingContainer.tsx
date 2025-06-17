@@ -5,6 +5,7 @@ import { extractTextFromImage } from "../../utils/utils";
 const WritingContainer = () => {
     const [material, setMaterial] = useState("pencil");
     const [images, setImages] = useState<{ [key: string]: string }>({});
+    const [result, setResult] = useState<{ [key: string]: { recognizedText: string, confidence: number } }>({});
 
     const handleDrawEnd = (dataUrl: string, key: string) => {
         setImages(prev => ({ ...prev, [key]: dataUrl }));
@@ -12,7 +13,13 @@ const WritingContainer = () => {
 
     const handleCheck = async () => {
         const text = await extractTextFromImage(images["한"]);
+        const text2 = await extractTextFromImage(images["글"]);
+        setResult({
+            "한": text,
+            "글": text2
+        });
         console.log(text);
+        console.log(text2);
     }
 
     return (
@@ -68,6 +75,11 @@ const WritingContainer = () => {
             </div>
             <div>
                 <button className="cursor-pointer border-[1px] border-black rounded-md p-2" onClick={handleCheck}>검사받기</button>
+            </div>
+            <span>검사 결과:</span>
+            <div className="flex flex-col gap-2">
+                <span>인식된 글자: {result["한"]?.recognizedText} 정확도: {result["한"]?.confidence}%</span>
+                <span>인식된 글자: {result["글"]?.recognizedText} 정확도: {result["글"]?.confidence}%</span>
             </div>
         </div>
     );
