@@ -1,6 +1,6 @@
 # ✍️ Writing — 한글 필기 인식 학습 웹앱
 
-**Demo:** [https://writing.vercel.com](https://writing-eight.vercel.app/)
+**Demo:** [https://writing-eight.vercel.com](https://writing-eight.vercel.app/)
 
 ---
 
@@ -54,7 +54,7 @@ React의 상태 관리와 Canvas 렌더링 사이의 동기화 문제를 직접 
 또한 이미지 인식 로직(`extractTextFromImage`)을 통해  
 단순히 "그릴 수 있는 앱"이 아닌 **데이터 기반 학습 시스템으로 확장할 수 있는 가능성**을 느꼈습니다.  
 
-무엇보다도, 완성된 페이지를 [writing.vercel.com](https://writing-eight.vercel.app/)에 직접 배포하면서  
+무엇보다도, 완성된 페이지를 [writing-eight.vercel.com](https://writing-eight.vercel.app/)에 직접 배포하면서  
 “사용자가 직접 체험하며 배우는 웹”의 가치를 다시금 깨달았습니다.
 
 ---
